@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotoHub</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to MotoHub Services</h2>
+        <form action="saveorder.php" method="POST">
+            <table>
+                <tr>
+                    <td>Buyer's Name</td>
+                    <td><input type="text" name="custname" id="" size="30" required></td>
+                </tr>
+                <tr>
+                    <td>State</td>
+                    <td><input type="text" name="cstate" required></td>
+                </tr>
+            </table>
+       <br>
+       <table>
+           <tr>
+               <th>Product Name</th>
+               <th>Price</th>
+               <th>Quantity</th>
+           </tr>
+           <tr>
+               <td>Transmission</td>
+               <td>TK 10000</td>
+               <td><input type="text" name="quantity[]" size="5" required></td>
+           </tr>
+           <tr>
+            <td>Battery</td>
+            <td>TK 15000</td>
+            <td><input type="text" name="quantity[]" size="5"></td>
+           </tr>
+            <tr>
+            <td>Radiator</td>
+            <td>TK 4000</td>
+            <td><input type="text" name="quantity[]" size="5"></td>
+           </tr>
+            <tr>
+            <td>Front Axel</td>
+            <td>TK 7000</td>
+            <td><input type="text" name="quantity[]" size="5"></td>
+           </tr>
+       </table>
+        <h3>Payment Method</h3>
+        <input type="radio" value="Cash" name="paymentMethod" required> Cash<br>
+        <input type="radio" value="Visa" name="paymentMethod" required> Visa<br>
+        <input type="radio" value="Master Card" name="paymentMethod" required> Master Card
+        <br><br>
+        <button type="submit">Submit Order</button>  <button type="reset">Cancel Order</button>
+			<a href="service_request.php">service_request</a>
+			<a href="feedback.html">feedback</a><hr>
+			<a href="contactform.php">contact us</a>
+        </form>
+
+    </div>
+</body>
+</html>
