@@ -1,0 +1,143 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> <meta charset="gbk">  
+<title> </title> 
+<style>  
+  *{margin: 0;padding: 0;}   
+  .main{width: 900px;margin: auto;}   
+  .topic{margin: 20px 0;box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);border-radius: 6px;}    
+  .t1 {padding: 10px;}    
+  .topic img{   
+       max-width: 100%;  
+    }  
+  .pbImageToTextHint{display: none;}  
+  .t2 li{list-style: none;border: 1px solid #ccc;}  
+   .answer-given-body p img{  
+            width: auto !important;height: auto!important;max-width: 100% !important;  
+    }  
+    .hidden {visibility:hidden; }    
+  </style>  
+</head>  
+<body>  
+<div class="main">    <h2> Question:<span class="title"></span></h2>    <div class="topic t1">        <div class="pbImages"><img src="" />        </div>    </div>    <div class="topic t2"><p>Answer:</p>
+
+<p>i have implemented task as instructions mentioned in question.</p>
+
+<p>i have added comments in code for understanding,</p>
+
+<p>we have used&nbsp;<strong>document.getElementById('').value</strong> to get values from html form with ID.</p>
+
+<p>in this example we have to calculate total cost of products, for this&nbsp;</p>
+
+<p>first we have to calculate cost of each product by multiplication of product with their quantity&nbsp;</p>
+
+<p>then do addition of all the price.</p>
+
+<p>i have created https:coffee.js seprate file, if you want use it in html code just copy it from https:coffee.js and paste inside &lt;script&gt; &lt;/script&gt; in html file.</p>
+
+<p>below is the code,output and screenshot:</p>
+
+<p>index.html</p>
+
+<pre>
+<code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Coffee shop.html&lt;/title&gt;
+    &lt;script type="text/javascript" src="https:coffee.js"&gt;&lt;/script&gt;
+    &lt;style&gt;
+        td,th,table{border:thin solid black}
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form action=""&gt;
+        &lt;h3&gt;Coffee Order Form&lt;/h3&gt;
+        &lt;!-- A bordered table for item oreders --&gt;
+        &lt;table&gt;
+            &lt;!-- First, the column headings --&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Product Name&lt;/th&gt;
+                &lt;th&gt;Price&lt;/th&gt;
+                &lt;th&gt;Quantity&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;!-- Now, the table data entries --&gt;
+            &lt;tr&gt;
+                &lt;th&gt;French Vanilla&lt;/th&gt;
+                &lt;td&gt;$3.49&lt;/td&gt;
+                &lt;td&gt;&lt;input type="text" id="french" size="2"&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Hazlenut Cream (1 lb.)&lt;/th&gt;
+                &lt;td&gt;$3.95&lt;/td&gt;
+                &lt;td&gt;&lt;input type="text" id="hazlenut" size="2"&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Colombian&lt;/th&gt;
+                &lt;td&gt;$4.49&lt;/td&gt;
+                &lt;td&gt;&lt;input type="text" id="colombian" size="2"&gt;&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+        &lt;!-- button for precompututation of the total cost --&gt;
+        &lt;p&gt;
+            &lt;input type="button" value="Total Cost" onclick="getCost()" &gt;
+            &lt;input type="text" size="5" id="cost" value=""&gt;
+        &lt;/p&gt;
+        &lt;!-- the submit and reset button --&gt;
+        &lt;p&gt;
+            &lt;input type="submit" value="Submit Order"&gt;
+            &lt;input type="reset" value="Clear Order Form"&gt;
+        &lt;/p&gt;
+    &lt;/form&gt;
+    &lt;!-- https:coffee.js --&gt;
+    &lt;script&gt;
+   
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>https:coffee.js</p>
+
+<pre>
+<code>function getCost(){
+    var frenchQty = document.getElementById('french').value; /* get values from html form by ID */
+    var hazlenutQty = document.getElementById('hazlenut').value;
+    var colombianQty = document.getElementById('colombian').value;
+
+    var frenchPrice = 3.49; /* price of product for calculations */
+    var hazlenutPrice = 3.95;
+    var colombianPrice = 4.49;
+
+    var french = frenchQty * frenchPrice; /* multiplication of quantity with price */
+    var hazlenut = hazlenutQty * hazlenutPrice;
+    var colombian = colombianQty * colombianPrice;
+    
+    var totalCost = french+hazlenut+colombian; /* total cost addition */
+    
+    document.getElementById('cost').value="$"+totalCost; /* displaying total cose to input box whos id is cost */
+}</code></pre>
+
+<p>output:</p>
+
+<p><img alt="+ + c localhost/Chegg/index.html?
+Apps J Responsive Touch ... Email Sending in Se..
+JSP Lo
+Coffee Order Form
+Product Name Pri" src="https://media.cheggcdn.com/coop/d72/d72cae14-14e6-45c4-a112-55143f6712e9/1619750317127_op1.png" style="height:357px;width:587px"></p>
+
+<p>screenshot:</p>
+
+<p><img alt="<> index.html x
+JS https:coffee.js
+<> index.html > html > body > form >> input#cost
+14
+<!-- A bordered table for item oreders -->
+1" src="https://media.cheggcdn.com/coop/82c/82c91f80-5f3c-417b-9b8f-fb36ae8a2564/1619750340458_index.png" style="height:701px;width:991px"></p>
+
+<p><img alt="X
+<> index.html JS https:coffee.js
+JS https:coffee.js
+1 function getcosto
+var frenchqty = document.getElementById(french).value; /* get" src="https://media.cheggcdn.com/coop/0ce/0ce4e813-3e6c-47ad-af32-e8c665fa35ce/1619750357118_audio.png"></p>
+</div></div></html>

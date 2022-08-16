@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML Form</title>
+  </head>
+  <body>
+    <h1>Feedback Form</h1> <!-- Creating Heading -->
+    <p>Please fill out this form to help me improve My site.</p> <!-- Creating Heading -->
+    <form onsubmit="submitForm()"> <!--Creating Form element.
+    this form when submit calls submitForm() javascript function. -->
+    <!-- Creating table element to organise input in row and colunms
+  here labels will be in first row and colunms will be in second colunms and each different
+entry will be in its own line.-->
+      <table>
+        <!-- Creating label and input field for name  -->
+        <tr>
+          <td><label for="name">Name </label></td>
+          <td><input type="text" id="name" name="name"></td>
+        </tr>
+        <!-- Creating label and input field for email -->
+        <tr>
+          <td><label for="name">E-mail Address </label></td>
+          <td><input type="text" id="email" name="email"></td>
+        </tr>
+        <tr>
+          <td><h3>Things you liked on My Site:</h3></td>
+        </tr>
+        <!-- Creating label and checkbox for Site design option-->
+        <tr>
+          <td></td>
+          <td><input type="checkbox" value="Site design" id="checkbox">
+          <label for="checkbox1">Site design</label></td>
+        </tr>
+        <!-- Creating label and checkbox for Contents option-->
+        <tr>
+          <td></td>
+          <td><input type="checkbox"  value="Contents" id="checkbox">
+          <label>Contents</label></td>
+        </tr>
+        <!-- Creating label and checkbox for Site Ease of use option-->
+        <tr>
+          <td></td>
+          <td><input type="checkbox" value="Ease of use" id="checkbox">
+          <label>Ease of use</label></td>
+        </tr>
+      </table>
+      <br>
+      <!-- Creating submit button and clear form button.-->
+      <input type="submit" value="Submit Your Entries">
+      <input type="reset" value="Clear Your Entries">
+        <a href="seHome.html">Home</a>
+    </form> <!-- end of form element-->
+
+  <script type="text/javascript"> <!-- start of javascript -->
+    // function to validate and display response
+    function submitForm() {
+      // get name and emeil entered by user.
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+
+      // validate email and name.
+      var validated = true;
+      var errorMsg = ""
+      // if name is empty then add errorMsg 'Name is requied'
+      // and update validated var to false.
+      if(name == "") {
+        validated = false;
+        errorMsg += "Name is requied";
+      }
+      // creating regular expression to validate email
+      var emailRegEx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      // if email entered by user is not match emailRegEx means email is invalid.
+      // add errorMsg 'Valid email is requied' to the errorMsg.
+      if(!email.match(emailRegEx)) {
+        validated = false;
+        errorMsg += "Valid Email is requied";
+      }
+      // if one of input in invalid show error message and return from function.
+      if(!validated) {
+        alert(errorMsg);
+        return;
+      }
+
+      /*
+      Get checkboxes checked by user, if no checkbox is selected then default
+      text will be 'None'.
+      */
+      var checkboxes = document.forms[0];
+      var text = "None";
+      var i;
+      for(i=0;i<checkboxes.length;i++) {
+        if(checkboxes[i].checked) {
+          if(text == "None") { // this is first checkbox selected do not add 'and' here
+            text = checkboxes[i].value+" ";
+          }
+          else { // this is not first checkbox selected add and before actual value.
+            text += "and "+checkboxes[i].value+" ";
+          }
+        }
+      }
+
+        // display entries in alert dialog.
+      alert("Thanks "+name+" for your comments.."+"Your e-mail: "+email+""+
+    "Thanks you liked on my site: "+text);
+    }
+  </script> <!-- end of javascript -->
+</body> <!-- end of body element -->
+</html>
